@@ -14,8 +14,6 @@ IMAGE_HEIGHT = 70
 
 
 def cluster_and_arrange_image(img, n_clusters):
-    if IMAGE_HEIGHT * IMAGE_WIDTH % n_clusters != 0:
-        raise Exception("wrong number of clusters !!!")
     X = img.reshape(-1,3)
     km = KMeans(n_clusters=n_clusters).fit(X)
     means = np.mean(km.cluster_centers_, axis=1)
